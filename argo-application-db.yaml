@@ -1,4 +1,4 @@
-# This is the YAML description of the applications I want to deploy onto Kubernetes
+# This is the YAML description of the argocd applications I want to use for my database
 # I am using Helm charts to deploy the applications
 # I am using the Bitnami Helm charts repository
 # For database I am using PostgreSQL

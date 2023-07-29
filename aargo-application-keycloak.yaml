@@ -1,0 +1,23 @@
+# This is the YAML description of the argocd applications I want to use for my keycloak
+# I am using Helm charts to deploy the applications
+# I am using the Bitnami Helm charts repository
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-keyclaok
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 16.0.0
+    chart: keycloak
+    helm:
+      valueFiles:
+        - values.yaml
+  sources: []
+  project: default
