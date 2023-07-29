@@ -1,0 +1,28 @@
+# This is the YAML description of the applications I want to deploy onto Kubernetes
+# I am using Helm charts to deploy the applications
+# I am using the Bitnami Helm charts repository
+# For database I am using PostgreSQL
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-database
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 12.7.1
+    directory:
+      jsonnet:
+        tlas:
+          - {}
+    chart: postgresql
+    helm:
+      valueFiles:
+        - values.yaml
+  sources: []
+  project: default
